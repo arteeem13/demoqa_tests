@@ -1,10 +1,15 @@
 package com.demoqa.tests;
 
+import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.*;
 
 import java.io.File;
+import java.sql.Array;
 
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 /**
@@ -15,27 +20,27 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class DemoQATest {
 
-    String baseURL = "https://demoqa.com";
-
     @BeforeAll
-    public static void init(){
-        Configuration.browser = "FIREFOX";
-        Configuration.browserSize = "1920x1080";
+    static void beforeAll(){
+
+        Configuration.browser = "CHROME";
+        Configuration.browserSize = "1600x900";
+        Configuration.baseUrl = "https://demoqa.com";
     }
 
     @Test
     @DisplayName("Data in pop-up window matches with data from Student Registration Form in FIREFOX")
     void checkFillingFieldsInPopupFirefox() {
 
-        open( baseURL + "/automation-practice-form");
+        open( "/automation-practice-form");
 
         String firstName = "Artem";
         String lastName = "Andreev";
         String gender = "Male";
         String userEmail = "artem@mail.com";
-        String userPhoneNumber = "89190000000";
+        String userPhoneNumber = "8919000000";
         String currentAddress = "Kazan, Republic of Tatarstan, Russia";
-        File photo = new File("photos/panda.jpg");
+        File photo = new File("src/test/resources/panda.jpg");
         String state = "NCR";
         String city = "Delhi";
 
@@ -52,15 +57,15 @@ public class DemoQATest {
 
         SubmittingForms.submitStudentRegistrationForm();
 
-        $("tr:nth-child(1) > td:nth-child(2)").equals(firstName + " " +  lastName);
-        $("tr:nth-child(2) > td:nth-child(2)").equals(userEmail);
-        $("tr:nth-child(3) > td:nth-child(2)").equals(gender);
-        $("tr:nth-child(4) > td:nth-child(2)").toString().equals(userPhoneNumber);
-        $("tr:nth-child(5) > td:nth-child(2)").equals("13 May 1994");
-        $("tr:nth-child(6) > td:nth-child(2)").equals("Maths");
-        $("tr:nth-child(7) > td:nth-child(2)").equals("Sports");
-        $("tr:nth-child(8) > td:nth-child(2)").equals(photo);
-        $("tr:nth-child(9) > td:nth-child(2)").equals(currentAddress);
-        $("tr:nth-child(10) > td:nth-child(2)").equals(state + " " + city);
+        $(".table-responsive").$(byText("Student Name")).parent().shouldHave(text(firstName + " " +  lastName));
+        $(".table-responsive").$(byText("Student Email")).parent().shouldHave(text(userEmail));
+        $(".table-responsive").$(byText("Gender")).parent().shouldHave(text(gender));
+        $(".table-responsive").$(byText("Mobile")).parent().shouldHave(text(String.valueOf(919000000)));
+        $(".table-responsive").$(byText("Date of Birth")).parent().shouldHave(text("13 May,1994"));
+        $(".table-responsive").$(byText("Subjects")).parent().shouldHave(text("Maths"));
+        $(".table-responsive").$(byText("Hobbies")).parent().shouldHave(text("Sports"));
+        $(".table-responsive").$(byText("Picture")).parent().shouldHave(text("panda.jpg"));
+        $(".table-responsive").$(byText("Address")).parent().shouldHave(text(currentAddress));
+        $(".table-responsive").$(byText("State and City")).parent().shouldHave(text(state + " " + city));
     }
 }
