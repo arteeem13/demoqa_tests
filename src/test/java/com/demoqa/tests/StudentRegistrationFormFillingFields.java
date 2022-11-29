@@ -5,7 +5,7 @@ import java.io.File;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 
-public class FillingStudentRegistrationForm {
+public class StudentRegistrationFormFillingFields {
 
     static void setName(String firstName, String lastName){
         $("#firstName").setValue(firstName);

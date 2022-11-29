@@ -1,12 +1,9 @@
 package com.demoqa.tests;
 
-import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.*;
 
 import java.io.File;
-import java.sql.Array;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
@@ -18,7 +15,7 @@ import static com.codeborne.selenide.Selenide.*;
  * засабмитились и проверить что все данные появились в открытом поп-ап окне )
  */
 
-public class DemoQATest {
+public class StudentRegistrationFormTest {
 
     @BeforeAll
     static void beforeAll(){
@@ -44,18 +41,18 @@ public class DemoQATest {
         String state = "NCR";
         String city = "Delhi";
 
-        FillingStudentRegistrationForm.setName(firstName, lastName);
-        FillingStudentRegistrationForm.setGender(gender);
-        FillingStudentRegistrationForm.setDateOfBirth("13", "May", "1994");
-        FillingStudentRegistrationForm.setEmail(userEmail);
-        FillingStudentRegistrationForm.setMobile(userPhoneNumber);
-        FillingStudentRegistrationForm.setSubjects("Math");
-        FillingStudentRegistrationForm.setHobbies("Sports");
-        FillingStudentRegistrationForm.setPhoto(photo);
-        FillingStudentRegistrationForm.setCurrentAddress(currentAddress);
-        FillingStudentRegistrationForm.setStateAndCity(state, city);
+        StudentRegistrationFormFillingFields.setName(firstName, lastName);
+        StudentRegistrationFormFillingFields.setGender(gender);
+        StudentRegistrationFormFillingFields.setDateOfBirth("13", "May", "1994");
+        StudentRegistrationFormFillingFields.setEmail(userEmail);
+        StudentRegistrationFormFillingFields.setMobile(userPhoneNumber);
+        StudentRegistrationFormFillingFields.setSubjects("Math");
+        StudentRegistrationFormFillingFields.setHobbies("Sports");
+        StudentRegistrationFormFillingFields.setPhoto(photo);
+        StudentRegistrationFormFillingFields.setCurrentAddress(currentAddress);
+        StudentRegistrationFormFillingFields.setStateAndCity(state, city);
 
-        SubmittingForms.submitStudentRegistrationForm();
+        SubmittingForm.submitStudentRegistrationForm();
 
         $(".table-responsive").$(byText("Student Name")).parent().shouldHave(text(firstName + " " +  lastName));
         $(".table-responsive").$(byText("Student Email")).parent().shouldHave(text(userEmail));
