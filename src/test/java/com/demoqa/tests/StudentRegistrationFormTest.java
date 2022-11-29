@@ -18,10 +18,10 @@ import static com.codeborne.selenide.Selenide.*;
 public class StudentRegistrationFormTest {
 
     @BeforeAll
-    static void beforeAll(){
+    public static void beforeAllForFirefox(){
 
-        Configuration.browser = "CHROME";
-        Configuration.browserSize = "1600x900";
+        Configuration.browser = "FIREFOX";
+        Configuration.browserSize = "1920x1080";
         Configuration.baseUrl = "https://demoqa.com";
     }
 

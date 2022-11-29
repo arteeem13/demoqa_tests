@@ -4,7 +4,7 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class SubmittingForm {
 
-    static void submitStudentRegistrationForm(){
+    public static void submitStudentRegistrationForm(){
         $("#submit").click();
     }
 }

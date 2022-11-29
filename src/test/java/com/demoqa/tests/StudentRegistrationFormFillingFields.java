@@ -7,40 +7,40 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class StudentRegistrationFormFillingFields {
 
-    static void setName(String firstName, String lastName){
+    public static void setName(String firstName, String lastName){
         $("#firstName").setValue(firstName);
         $("#lastName").setValue(lastName);
     }
 
-    static void setEmail(String userEmail){
+    public static void setEmail(String userEmail){
         $("#userEmail").setValue(userEmail);
     }
 
-    static void setGender(String gender){
+    public static void setGender(String gender){
         $(byText(gender)).click();
     }
 
-    static void setMobile(String userPhoneNumber){
+    public static void setMobile(String userPhoneNumber){
         $("#userNumber").setValue(userPhoneNumber);
     }
 
-    static void setSubjects(String subjects){
+    public static void setSubjects(String subjects){
         $("#subjectsInput").setValue(subjects).pressTab();
     }
 
-    static void setCurrentAddress(String currentAddress){
+    public static void setCurrentAddress(String currentAddress){
         $("#currentAddress").setValue(currentAddress);
     }
 
-    static void setHobbies(String hobbies){
+    public static void setHobbies(String hobbies){
         $("#hobbiesWrapper").$(byText(hobbies)).click();
     }
 
-    static void setPhoto(File photo){
+    public static void setPhoto(File photo){
         $("#uploadPicture").uploadFile(photo);
     }
 
-    static void setDateOfBirth(String day, String month, String year) {
+    public static void setDateOfBirth(String day, String month, String year) {
         $("#dateOfBirthInput").click();
         $(".react-datepicker__month-select").click();
         $(byText(month)).click();
@@ -49,7 +49,7 @@ public class StudentRegistrationFormFillingFields {
         $(".react-datepicker__day--0" + day).click();
     }
 
-    static void setStateAndCity(String state, String city) {
+    public static void setStateAndCity(String state, String city) {
         $("#state").click();
         $(byText(state)).click();
         $("#city").click();

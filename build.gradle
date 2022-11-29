@@ -9,6 +9,16 @@ repositories {
     mavenCentral()
 }
 
+compileJava.options.encoding = 'UTF-8'
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+test {
+    systemProperty "file.encoding", "utf-8"
+    useJUnitPlatform()
+}
+
 dependencies {
     testImplementation ('com.codeborne:selenide:6.10.1',
             'org.junit.jupiter:junit-jupiter:5.9.0')
