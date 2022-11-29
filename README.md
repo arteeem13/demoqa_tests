@@ -1,4 +1,4 @@
-In this project safe tests for demoqa.com. /n/n
+# In this project safe tests for demoqa.com
 
 Test-suite 1. Tests for Student Registration Form
     Test-case 1.1. Data in pop-up window matches with data from Student Registration Form in FIREFOX
