@@ -9,12 +9,6 @@ import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
-/**
- * Разработайте автотест на проверку формы https://demoqa.com/automation-practice-form
- * (всего лишь один тест, чтобы открылся браузер, заполнились успешно все поля,
- * засабмитились и проверить что все данные появились в открытом поп-ап окне )
- */
-
 public class StudentRegistrationFormTest {
 
     @BeforeAll
