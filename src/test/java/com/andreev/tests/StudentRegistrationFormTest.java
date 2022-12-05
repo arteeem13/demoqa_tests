@@ -1,4 +1,4 @@
-package com.github.arteeem13.tests;
+package com.andreev.tests;
 
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.*;

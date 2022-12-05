@@ -1,4 +1,4 @@
-package com.github.arteeem13.tests;
+package com.andreev.tests;
 
 import static com.codeborne.selenide.Selenide.$;
 
