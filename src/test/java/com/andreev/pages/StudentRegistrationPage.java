@@ -1,15 +1,34 @@
-package com.andreev.tests;
+package com.andreev.pages;
+
+import com.codeborne.selenide.SelenideElement;
 
 import java.io.File;
 
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
 
-public class StudentRegistrationFormFillingFields {
+public class StudentRegistrationPage {
 
-    public static void setName(String firstName, String lastName){
-        $("#firstName").setValue(firstName);
-        $("#lastName").setValue(lastName);
+    static SelenideElement
+            pageTitle = $(".practice-form-wrapper"),
+            firstNameInput = $("#firstName"),
+            lastNameInput = $("#lastName");
+
+    private static final String PAGE_TITLE = "Student Registration Form";
+
+    public static void openPage() {
+        open( "/automation-practice-form");
+        pageTitle.shouldHave(text(PAGE_TITLE));
+    }
+
+    public static void setFirstName(String value){
+        firstNameInput.setValue(value);
+    }
+
+    public static void setLastName(String value){
+        lastNameInput.setValue(value);
     }
 
     public static void setEmail(String userEmail){
@@ -54,5 +73,13 @@ public class StudentRegistrationFormFillingFields {
         $(byText(state)).click();
         $("#city").click();
         $(byText(city)).click();
+    }
+
+    public static void submitStudentRegistrationForm(){
+        $("#submit").click();
+    }
+
+    public static void checkValue(String key, String value) {
+        $(".table-responsive").$(byText(key)).parent().shouldHave(text(value));
     }
 }
