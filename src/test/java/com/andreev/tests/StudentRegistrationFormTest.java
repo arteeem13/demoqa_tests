@@ -16,29 +16,29 @@ public class StudentRegistrationFormTest extends TestBase {
 
         openPage();
 
-        setFirstName(firstName);
-        setLastName(lastName);
-        setGender(gender);
-        setDateOfBirth("13", "May", "1994");
-        setEmail(userEmail);
-        setMobile(userPhoneNumber);
-        setSubjects("Math");
-        setHobbies("Sports");
+        setFirstName(randFirstName);
+        setLastName(randLastName);
+        setGender(randGender);
+        setDateOfBirth(randDay, randMonth, randYear);
+        setEmail(randUserEmail);
+        setMobile(randUserPhoneNumber);
+        setSubjects("Maths");
+        setHobbies(randHobbies);
         setPhoto(photo);
-        setCurrentAddress(currentAddress);
-        setStateAndCity(state, city);
+        setCurrentAddress(randCurrentAddress);
+        setStateAndCity(randState, randCity);
 
         submitStudentRegistrationForm();
 
-        checkValue("Student Name", firstName + " " +  lastName);
-        checkValue("Student Email", userEmail);
-        checkValue("Gender", gender);
-        checkValue("Mobile", String.valueOf(919000000));
-        checkValue("Date of Birth", "13 May,1994");
+        checkValue("Student Name", randFirstName + " " +  randLastName);
+        checkValue("Student Email", randUserEmail);
+        checkValue("Gender", randGender);
+        checkValue("Mobile", randUserPhoneNumber);
+        checkValue("Date of Birth", randDay + " " + randMonth + "," + randYear);
         checkValue("Subjects", "Maths");
-        checkValue("Hobbies", "Sports");
+        checkValue("Hobbies", randHobbies);
         checkValue("Picture", "panda.jpg");
-        checkValue("Address", currentAddress);
-        checkValue("State and City", state + " " + city);
+        checkValue("Address", randCurrentAddress);
+        checkValue("State and City", randState + " " + randCity);
     }
 }
