@@ -13,9 +13,7 @@ public class StudentRegistrationFormTest extends TestBase {
     @Test
     @DisplayName("Data in pop-up window matches with data from Student Registration Form in FIREFOX")
     void checkFillingFieldsInPopupFirefox() {
-
         openPage();
-
         setFirstName(randFirstName);
         setLastName(randLastName);
         setGender(randGender);
@@ -27,9 +25,7 @@ public class StudentRegistrationFormTest extends TestBase {
         setPhoto(photo);
         setCurrentAddress(randCurrentAddress);
         setStateAndCity(randState, randCity);
-
         submitStudentRegistrationForm();
-
         checkValue("Student Name", randFirstName + " " +  randLastName);
         checkValue("Student Email", randUserEmail);
         checkValue("Gender", randGender);
