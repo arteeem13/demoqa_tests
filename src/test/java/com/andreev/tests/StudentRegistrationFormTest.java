@@ -1,5 +1,7 @@
 package com.andreev.tests;
 
+import com.codeborne.selenide.logevents.SelenideLogger;
+import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.*;
 
 import static com.andreev.pages.StudentRegistrationPage.*;
@@ -13,6 +15,7 @@ public class StudentRegistrationFormTest extends TestBase {
     @Test
     @DisplayName("Data in pop-up window matches with data from Student Registration Form in FIREFOX")
     void checkFillingFieldsInPopupFirefox() {
+        SelenideLogger.addListener("allure", new AllureSelenide());
         openPage();
         setFirstName(randFirstName);
         setLastName(randLastName);
