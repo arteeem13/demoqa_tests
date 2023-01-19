@@ -76,6 +76,7 @@ public class StudentRegistrationPage {
     }
 
     public static void submitStudentRegistrationForm(){
+        $("#submit").scrollTo();
         $("#submit").click();
     }
 
