@@ -22,7 +22,7 @@ public class TestBase {
     }
 
     @AfterEach
-    public static void afterEachTests() {
+    public void afterEachTests() {
         Attachments.screenshotAs("Screenshot");
         Attachments.pageSource();
         Attachments.browserConsoleLogs();
